@@ -1,0 +1,75 @@
+By using docker we create iamges&containers.....
+
+using dockerfile we can create our images and push them into dockerhub.........
+Dockerfile ..........
+from ubuntu
+run apt-get install -y nginx
+run service nginx start
+copy index.html /var/www/html
+run service nginx start&&/bin/bash
+.........................
+build that image&push them into dockerhub
+sudo docker build -t mano8888/dbs .
+sudo docker login 
+sudo docker push reponame
+
+..................................................................
+creating a container....
+docker run -it --name ser33 mano8888/dbs /bin/bash
+docker ps
+docker ps -a 
+docker ps -a -q
+docker search images
+docker rmi imagename/containerId/name
+docker rm -f cid/name
+docker rm -f `docker ps -a -q`
+docker push
+docker login
+docker inspect Idname
+docker tag previousname addname
+docker ps -a -q --no-trunc
+docker run -it -d ubuntu
+docker exec run -it ubuntu
+docker pull
+docker logout
+docker start cidname
+docker attach cidname
+docker stop
+docker pause
+docker restart
+...............................................
+docker swarm..............
+docker swarm is a container tool of orchestration
+orchestration is nothing but controlling & managing a muiltiple servers by single server..........
+it is used for upadate the version
+and increase scaling capability
+service are in up&running process
+.....................................
+docker-machine create --hyperv man1
+docker-machine ls
+docker-machine inpect
+docker swarm --addvitiser -addr job1
+docker swarm join-token job1
+docker service run replicas:3 -p 80:80 nginx man1
+docker service scale=3
+docker service update image:nginx
+docker service shutdown
+................................................
+Docker volumes..........
+it is used for sharing/storaging the data.
+if you delete the container data will be there.
+you can share the volumes from one server to another server
+................................................
+docker volume create vol1
+docker volume ls
+docker volume inspect
+docker run create myjenkins -v myvol1:/var/jenkins_home -P 8080:8080
+-p 5000:5000
+copy the admin pwd
+and copy into the jenkins credentilas
+docker run create myjenkins2 -v myvol1:/var/jenkins_home -p 9090:8080 -P 6000:5000
+copy the same first admin pwd into myjenkins2 server
+it will shares the same vol from jenkins1 to jenkins 2
+docker run create myjenkins jenkins_home:/var/jenkins_home -P 8080:8080 -P 5050:5050
+-p expose the volumes using this above cmd it stores data from one srver to another server............................
+

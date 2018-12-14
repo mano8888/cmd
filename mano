@@ -1,0 +1,24 @@
+git end to end flow work
+
+git init
+git config --global user.name"manoj"
+git config --global user.email"manukamabakam.k@gmail.com"
+git config --list
+vim mano
+git add filename
+git commit -m"commited some file"
+git branch
+git branch branchname
+git branch checkout branchname
+git merge branchname
+git log
+git stash 
+git stash drop 
+git branch -d
+git rm --cached filename
+git reset
+git push
+git push --set-upstream origin branchname
+git pull
+git fetch
+

@@ -1,0 +1,37 @@
+first we need to download jdk file,next download tomcat,next download jenkins.war file,this war file cp into this path tomcat/webapp/jenkins.war........
+
+
+
+creating a job in jenkins
+
+
+first select new item & go for freestyle pro/pipeline pro/multi pro/mvn pro......
+first developer complete the process about changing the code,checkout these code into github repo,after compliting this process jenkins will automatically pic that code from repo,after that go to build triggers,enable the build periodically&poll scm by using crontab style we can trigger the build process,next go for build option and select invoke top-level maven target,for mvn package,and go to add buildstep process and select the excuetive shell ,and writ a scripts for deploying into different env,next go for post build actions ,in that go for deployment process we can select deploy to war container,............
+
+pipeline in jenkins.....
+
+we can create jenkinsfile by using groovy script........
+node{ 
+stage('scm management'){
+some git credentialsId url https://github.com/mano8888/debit.git
+}
+stage('mvn package'){
+sh 'mvn clean package'
+}
+stage('build docker image'){
+sudo docker build -t mano8888/dbs .
+stage('push docker image'){
+sudo docker run -it --name ser33 mano8888/dbs /bin/bash
+}
+sudo docker push mano8888/dbs
+}
+}
+..................................................
+we create master/slave nodes...........
+enter the lable name ,next enter the remote root directory path,giving the hostname...........
+in this we can distribute the load into mutiple machines & muitiplle build in parllel ,without slave node we cannot build muitiple...........
+ we can install plugins easily..........it is a plugin based tool&automation ci/cd tool...
+deploying into multiple servers.............
+by using build with parameterised...we can deploy into mulitple servers.
+
+

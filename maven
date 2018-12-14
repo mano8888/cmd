@@ -1,0 +1,11 @@
+Generating standalone pom.xml ...................
+
+mvn archetype:generate -DgroupId=com.samplepro -DartifactId=samplepro -Dversion=1.0-SNAPSHOT -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+maven life cycle.................
+
+mvn compile
+mvn test-compile
+mvn test
+mvn package
+mvn install
+
